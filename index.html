@@ -12,299 +12,341 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #050508;
+            background-color: #07070a;
             color: #ffffff;
-            padding: 15px 10px;
+            padding: 20px 12px;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 450px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .header-card {
-            background: linear-gradient(135deg, rgba(88, 28, 135, 0.2), rgba(219, 39, 119, 0.2));
+        /* رأس الصفحة */
+        .profile-header {
+            background: linear-gradient(135deg, #1e1b4b, #31103f);
             border: 2px solid #a855f7;
-            border-radius: 16px;
-            padding: 16px;
+            border-radius: 20px;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
         }
-        .header-title { color: #ec4899; font-size: 1.25rem; font-weight: bold; margin-bottom: 4px; }
-        .header-subtitle { color: #cbd5e1; font-size: 0.85rem; margin-bottom: 6px; }
-        .header-name { color: #facc15; font-size: 1.15rem; font-weight: bold; }
+        .profile-title {
+            color: #f472b6;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .profile-subtitle {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .profile-name {
+            color: #facc15;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
 
-        .card {
-            background: #0b0c12;
-            border-radius: 12px;
+        /* كرت القسم */
+        .section-card {
+            background: #0f1017;
+            border-radius: 14px;
             padding: 12px;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .border-green { border: 2px solid #22c55e; box-shadow: 0 0 12px rgba(34, 197, 94, 0.25); }
-        .border-blue  { border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.25); }
-        .border-pink  { border: 2px solid #ec4899; box-shadow: 0 0 12px rgba(236, 72, 153, 0.25); }
-        .border-yellow{ border: 2px solid #eab308; box-shadow: 0 0 12px rgba(234, 179, 8, 0.25); }
-        .border-cyan  { border: 2px solid #06b6d4; box-shadow: 0 0 12px rgba(6, 182, 212, 0.25); }
+        /* إطارات النيون الملونة */
+        .neon-green { border: 2px solid #22c55e; box-shadow: 0 0 12px rgba(34, 197, 94, 0.25); }
+        .neon-blue  { border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.25); }
+        .neon-pink  { border: 2px solid #ec4899; box-shadow: 0 0 12px rgba(236, 72, 153, 0.25); }
+        .neon-yellow{ border: 2px solid #eab308; box-shadow: 0 0 12px rgba(234, 179, 8, 0.25); }
+        .neon-cyan  { border: 2px solid #06b6d4; box-shadow: 0 0 12px rgba(6, 182, 212, 0.25); }
 
-        .card-header {
-            font-size: 1.05rem;
+        .section-title {
+            font-size: 1rem;
             font-weight: bold;
             display: flex;
             align-items: center;
             gap: 8px;
             padding-bottom: 6px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .row {
-            background: #121420;
-            padding: 7px 10px;
+        /* صف البيانات داخل الكرت */
+        .data-row {
+            background: #161824;
+            padding: 8px 12px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
         }
-        .row-label { color: #94a3b8; font-size: 0.8rem; width: 45px; flex-shrink: 0; }
-        .row-value { color: #f8fafc; font-size: 0.85rem; direction: ltr; text-align: left; word-break: break-all; flex-grow: 1; }
+        .data-label {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            min-width: 40px;
+        }
+        .data-value {
+            color: #ffffff;
+            font-size: 0.85rem;
+            direction: ltr;
+            text-align: left;
+            word-break: break-all;
+            flex-grow: 1;
+        }
 
-        .btn-copy {
+        /* زر النسخ */
+        .copy-btn {
             background: #2563eb;
             color: #ffffff;
             border: none;
             border-radius: 6px;
-            padding: 4px 10px;
+            padding: 5px 12px;
             font-size: 0.75rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: 0.2s;
             white-space: nowrap;
         }
-        .btn-copy:active { transform: scale(0.92); }
-        .footer { text-align: center; color: #cbd5e1; font-size: 0.9rem; margin-top: 10px; padding-bottom: 10px; }
+        .copy-btn:active {
+            transform: scale(0.93);
+            background: #1d4ed8;
+        }
+
+        .footer {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            padding-bottom: 15px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-card">
-        <div class="header-title">★ أهلاً بك ★</div>
-        <div class="header-subtitle">هذه معلومات لحسابات التواصل الاجتماعي للسيد</div>
-        <div class="header-name">✨ [ "سيد حسين عطيه الموسوي" ] ✨</div>
+
+    <!-- العنوان -->
+    <div class="profile-header">
+        <div class="profile-title">★ أهلاً بك ★</div>
+        <div class="profile-subtitle">هذه معلومات لحسابات التواصل الاجتماعي للسيد</div>
+        <div class="profile-name">✨ [ "سيد حسين عطيه الموسوي" ] ✨</div>
     </div>
 
     <!-- رقمي 1 -->
-    <div class="card border-green">
-        <div class="card-header">📞 رقمي 1</div>
-        <div class="row">
-            <span class="row-label">الرقم</span>
-            <span class="row-value" id="val-num1">07853349876</span>
-            <button class="btn-copy" onclick="copyValue('val-num1', this)">نسخ</button>
+    <div class="section-card neon-green">
+        <div class="section-title">📞 رقمي 1</div>
+        <div class="data-row">
+            <span class="data-label">الرقم</span>
+            <span class="data-value" id="c1">07853349876</span>
+            <button class="copy-btn" onclick="copyText('c1', this)">نسخ</button>
         </div>
     </div>
 
     <!-- رقمي 2 -->
-    <div class="card border-blue">
-        <div class="card-header">📞 رقمي 2</div>
-        <div class="row">
-            <span class="row-label">الرقم</span>
-            <span class="row-value" id="val-num2">78384576120</span>
-            <button class="btn-copy" onclick="copyValue('val-num2', this)">نسخ</button>
+    <div class="section-card neon-blue">
+        <div class="section-title">📞 رقمي 2</div>
+        <div class="data-row">
+            <span class="data-label">الرقم</span>
+            <span class="data-value" id="c2">78384576120</span>
+            <button class="copy-btn" onclick="copyText('c2', this)">نسخ</button>
         </div>
     </div>
 
     <!-- فيسبوك -->
-    <div class="card border-blue">
-        <div class="card-header">📘 فيسبوك</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-fb-name">حسوني السيد</span>
-            <button class="btn-copy" onclick="copyValue('val-fb-name', this)">نسخ</button>
+    <div class="section-card neon-blue">
+        <div class="section-title">📘 فيسبوك</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c3">حسوني السيد</span>
+            <button class="copy-btn" onclick="copyText('c3', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-fb-user">@Hassouni2009</span>
-            <button class="btn-copy" onclick="copyValue('val-fb-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c4">@Hassouni2009</span>
+            <button class="copy-btn" onclick="copyText('c4', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرابط</span>
-            <span class="row-value" id="val-fb-link">https://www.facebook.com/share/1C4CRYcLw/</span>
-            <button class="btn-copy" onclick="copyValue('val-fb-link', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرابط</span>
+            <span class="data-value" id="c5">https://www.facebook.com/share/1C4CRYcLw/</span>
+            <button class="copy-btn" onclick="copyText('c5', this)">نسخ</button>
         </div>
     </div>
 
     <!-- واتساب -->
-    <div class="card border-green">
-        <div class="card-header">💚 واتساب</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-wa-name">حسين عطيه الموسوي</span>
-            <button class="btn-copy" onclick="copyValue('val-wa-name', this)">نسخ</button>
+    <div class="section-card neon-green">
+        <div class="section-title">💚 واتساب</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c6">حسين عطيه الموسوي</span>
+            <button class="copy-btn" onclick="copyText('c6', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرقم</span>
-            <span class="row-value" id="val-wa-num">07853349876</span>
-            <button class="btn-copy" onclick="copyValue('val-wa-num', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرقم</span>
+            <span class="data-value" id="c7">07853349876</span>
+            <button class="copy-btn" onclick="copyText('c7', this)">نسخ</button>
         </div>
     </div>
 
     <!-- تيليجرام -->
-    <div class="card border-cyan">
-        <div class="card-header">✈️ تيليجرام</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-tg-name">حسوني السيد</span>
-            <button class="btn-copy" onclick="copyValue('val-tg-name', this)">نسخ</button>
+    <div class="section-card neon-cyan">
+        <div class="section-title">✈️ تيليجرام</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c8">حسوني السيد</span>
+            <button class="copy-btn" onclick="copyText('c8', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرقم</span>
-            <span class="row-value" id="val-tg-num">07853349876</span>
-            <button class="btn-copy" onclick="copyValue('val-tg-num', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرقم</span>
+            <span class="data-value" id="c9">07853349876</span>
+            <button class="copy-btn" onclick="copyText('c9', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-tg-user">@H_1_S_2</span>
-            <button class="btn-copy" onclick="copyValue('val-tg-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c10">@H_1_S_2</span>
+            <button class="copy-btn" onclick="copyText('c10', this)">نسخ</button>
         </div>
     </div>
 
     <!-- انستغرام -->
-    <div class="card border-pink">
-        <div class="card-header">📸 انستغرام</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-ig-name">حسوني السيد</span>
-            <button class="btn-copy" onclick="copyValue('val-ig-name', this)">نسخ</button>
+    <div class="section-card neon-pink">
+        <div class="section-title">📸 انستغرام</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c11">حسوني السيد</span>
+            <button class="copy-btn" onclick="copyText('c11', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-ig-user">_has2009</span>
-            <button class="btn-copy" onclick="copyValue('val-ig-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c12">_has2009</span>
+            <button class="copy-btn" onclick="copyText('c12', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرابط</span>
-            <span class="row-value" id="val-ig-link">https://www.instagram.com/_has2009?stkn=MTJjZ3k4emd1bm5m</span>
-            <button class="btn-copy" onclick="copyValue('val-ig-link', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرابط</span>
+            <span class="data-value" id="c13">https://www.instagram.com/_has2009?stkn=MTJjZ3k4emd1bm5m</span>
+            <button class="copy-btn" onclick="copyText('c13', this)">نسخ</button>
         </div>
     </div>
 
     <!-- سناب شات -->
-    <div class="card border-yellow">
-        <div class="card-header">👻 سناب شات</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-sc-name">السيد</span>
-            <button class="btn-copy" onclick="copyValue('val-sc-name', this)">نسخ</button>
+    <div class="section-card neon-yellow">
+        <div class="section-title">👻 سناب شات</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c14">السيد</span>
+            <button class="copy-btn" onclick="copyText('c14', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرقم</span>
-            <span class="row-value" id="val-sc-num">07853349876</span>
-            <button class="btn-copy" onclick="copyValue('val-sc-num', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرقم</span>
+            <span class="data-value" id="c15">07853349876</span>
+            <button class="copy-btn" onclick="copyText('c15', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-sc-user">Has17-2009</span>
-            <button class="btn-copy" onclick="copyValue('val-sc-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c16">Has17-2009</span>
+            <button class="copy-btn" onclick="copyText('c16', this)">نسخ</button>
         </div>
     </div>
 
     <!-- تيك توك 1 -->
-    <div class="card border-pink">
-        <div class="card-header">🎵 تيك توك 1</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-tt1-name">حسوني السيد</span>
-            <button class="btn-copy" onclick="copyValue('val-tt1-name', this)">نسخ</button>
+    <div class="section-card neon-pink">
+        <div class="section-title">🎵 تيك توك 1</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c17">حسوني السيد</span>
+            <button class="copy-btn" onclick="copyText('c17', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-tt1-user">hs_26_4</span>
-            <button class="btn-copy" onclick="copyValue('val-tt1-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c18">hs_26_4</span>
+            <button class="copy-btn" onclick="copyText('c18', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرابط</span>
-            <span class="row-value" id="val-tt1-link">tiktok.com/@hs_16_4</span>
-            <button class="btn-copy" onclick="copyValue('val-tt1-link', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرابط</span>
+            <span class="data-value" id="c19">tiktok.com/@hs_16_4</span>
+            <button class="copy-btn" onclick="copyText('c19', this)">نسخ</button>
         </div>
     </div>
 
     <!-- تيك توك 2 -->
-    <div class="card border-pink">
-        <div class="card-header">🎵 تيك توك 2</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-tt2-name">الموسوي</span>
-            <button class="btn-copy" onclick="copyValue('val-tt2-name', this)">نسخ</button>
+    <div class="section-card neon-pink">
+        <div class="section-title">🎵 تيك توك 2</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c20">الموسوي</span>
+            <button class="copy-btn" onclick="copyText('c20', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-tt2-user">hs_16_1</span>
-            <button class="btn-copy" onclick="copyValue('val-tt2-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c21">hs_16_1</span>
+            <button class="copy-btn" onclick="copyText('c21', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرابط</span>
-            <span class="row-value" id="val-tt2-link">tiktok.com/@hs_16_1</span>
-            <button class="btn-copy" onclick="copyValue('val-tt2-link', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرابط</span>
+            <span class="data-value" id="c22">tiktok.com/@hs_16_1</span>
+            <button class="copy-btn" onclick="copyText('c22', this)">نسخ</button>
         </div>
     </div>
 
     <!-- تيك توك 3 -->
-    <div class="card border-pink">
-        <div class="card-header">🎵 تيك توك 3</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-tt3-name">السيد</span>
-            <button class="btn-copy" onclick="copyValue('val-tt3-name', this)">نسخ</button>
+    <div class="section-card neon-pink">
+        <div class="section-title">🎵 تيك توك 3</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c23">السيد</span>
+            <button class="copy-btn" onclick="copyText('c23', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-tt3-user">hs_16_5</span>
-            <button class="btn-copy" onclick="copyValue('val-tt3-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c24">hs_16_5</span>
+            <button class="copy-btn" onclick="copyText('c24', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">الرابط</span>
-            <span class="row-value" id="val-tt3-link">tiktok.com/@hs_16_5</span>
-            <button class="btn-copy" onclick="copyValue('val-tt3-link', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">الرابط</span>
+            <span class="data-value" id="c25">tiktok.com/@hs_16_5</span>
+            <button class="copy-btn" onclick="copyText('c25', this)">نسخ</button>
         </div>
     </div>
 
     <!-- تويتر -->
-    <div class="card border-blue">
-        <div class="card-header">✖️ تويتر</div>
-        <div class="row">
-            <span class="row-label">الاسم</span>
-            <span class="row-value" id="val-tw-name">حسين عطيه</span>
-            <button class="btn-copy" onclick="copyValue('val-tw-name', this)">نسخ</button>
+    <div class="section-card neon-blue">
+        <div class="section-title">✖️ تويتر</div>
+        <div class="data-row">
+            <span class="data-label">الاسم</span>
+            <span class="data-value" id="c26">حسين عطيه</span>
+            <button class="copy-btn" onclick="copyText('c26', this)">نسخ</button>
         </div>
-        <div class="row">
-            <span class="row-label">اليوزر</span>
-            <span class="row-value" id="val-tw-user">@Hassouni 100k</span>
-            <button class="btn-copy" onclick="copyValue('val-tw-user', this)">نسخ</button>
+        <div class="data-row">
+            <span class="data-label">اليوزر</span>
+            <span class="data-value" id="c27">@Hassouni 100k</span>
+            <button class="copy-btn" onclick="copyText('c27', this)">نسخ</button>
         </div>
     </div>
 
     <div class="footer">👑 وجودكم يسعدني 👑</div>
+
 </div>
 
 <script>
-    function copyValue(elementId, btnElement) {
-        const textToCopy = document.getElementById(elementId).innerText;
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            const originalText = btnElement.innerText;
-            btnElement.innerText = "تم النسخ!";
-            btnElement.style.background = "#22c55e";
+    function copyText(id, btn) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const original = btn.innerText;
+            btn.innerText = "تم النسخ!";
+            btn.style.background = "#22c55e";
             setTimeout(() => {
-                btnElement.innerText = originalText;
-                btnElement.style.background = "#2563eb";
+                btn.innerText = original;
+                btn.style.background = "#2563eb";
             }, 1500);
         });
     }
