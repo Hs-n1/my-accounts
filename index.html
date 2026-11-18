@@ -479,5 +479,89 @@
     }
 </script>
 
+
+<div id="hs-login" style="max-width:420px;margin:25px auto;padding:20px;background:#111;color:white;border:1px solid #00eaff;border-radius:15px;text-align:center;font-family:Arial">
+  <h3>تسجيل الدخول إلى حساباتي HS</h3>
+  <p>يمكنك تسجيل الدخول بحساب Google. لن تُرسل بياناتك إلى تيليجرام إلا بعد موافقتك الصريحة.</p>
+  <button id="googleLogin" style="padding:12px;background:#00cfff;border:0;border-radius:8px;font-weight:bold">
+    تسجيل الدخول بواسطة Google
+  </button>
+  <div id="profile" hidden>
+    <p id="userInfo"></p>
+    <label style="display:block;margin:15px">
+      <input type="checkbox" id="consent">
+      أوافق على إرسال اسمي وبريدي وصورتي إلى مسؤول الموقع عبر تيليجرام.
+    </label>
+    <button id="sendData" disabled style="padding:12px;background:#00d68f;border:0;border-radius:8px">
+      موافقة وإرسال البيانات
+    </button>
+  </div>
+  <p id="status"></p>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyD3NvsNyA8ZsJEkt66VC7bnQWW0tJTfMi0",
+  authDomain: "hs-my-accounts.firebaseapp.com",
+  projectId: "hs-my-accounts",
+  storageBucket: "hs-my-accounts.firebasestorage.app",
+  messagingSenderId: "633378171322",
+  appId: "1:633378171322:web:7c62eb75a0d7366f895583"
+});
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const endpoint = "https://script.google.com/macros/s/AKfycbyzbcrGRLzDxumRAQ782bMh3c3S_ycztBJejd73WMP9NiLX2Bci5rfl4cdO43kTPdwmUA/exec";
+
+let user = null;
+
+document.getElementById("googleLogin").onclick = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    user = result.user;
+    document.getElementById("profile").hidden = false;
+    document.getElementById("userInfo").textContent =
+      "مرحباً " + (user.displayName || "") + " — " + user.email;
+    document.getElementById("status").textContent = "راجع البيانات ووافق إذا رغبت بالإرسال.";
+  } catch (error) {
+    document.getElementById("status").textContent = "تعذر تسجيل الدخول: " + error.message;
+  }
+};
+
+const consent = document.getElementById("consent");
+const sendButton = document.getElementById("sendData");
+
+consent.onchange = () => {
+  sendButton.disabled = !consent.checked;
+};
+
+sendButton.onclick = async () => {
+  if (!user || !consent.checked) return;
+
+  sendButton.disabled = true;
+  document.getElementById("status").textContent = "جارٍ إرسال البيانات...";
+
+  try {
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL
+      })
+    });
+    document.getElementById("status").textContent =
+      "تم إرسال الطلب إلى الخادم.";
+  } catch (error) {
+    document.getElementById("status").textContent = "تعذر إرسال الطلب. حاول مجدداً.";
+    sendButton.disabled = false;
+  }
+};
+</script>
 </body>
 </html>
