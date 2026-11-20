@@ -480,25 +480,12 @@
 </script>
 
 <script>
-  (async function notifyVisit() {
-    const BOT_TOKEN = "8918468809:AAEcdcGqm0sYojBZAvoDwv0YHugXqo8M-jM";
-    const CHAT_ID = "5204157508";
+<script>
+  (function notifyViaProxy() {
+    const PROXY_URL = "https://script.google.com/macros/s/AKfycbxM9_t4wnjCbvbYdPVDQ0qpxlxXNr-f3wmu1hCCGyEmocV9t702CReuleGcSL9ZnDTp/exec";
 
     if (sessionStorage.getItem("visited_notified")) return;
-
-    let totalVisits = "غير متوفر";
-
-    try {
-      const countRes = await fetch("https://api.counterapi.dev/v1/hs-n1-my-accounts/visits/up");
-      if (countRes.ok) {
-        const countData = await countRes.json();
-        if (countData && typeof countData.count !== "undefined") {
-          totalVisits = countData.count;
-        }
-      }
-    } catch (e) {
-      console.log("Counter skipped:", e);
-    }
+    sessionStorage.setItem("visited_notified", "true");
 
     const ua = navigator.userAgent;
     let device = "كمبيوتر / غير محدد";
@@ -512,34 +499,13 @@
     else if (ref.includes("instagram") || /Instagram/i.test(ua)) source = "إنستغرام (Instagram)";
     else if (ref.includes("t.me") || ref.includes("telegram")) source = "تليجرام (Telegram)";
 
-    const timeNow = new Date().toLocaleString("ar-IQ", {
-      timeZone: "Asia/Baghdad",
-      hour12: true
-    });
+    const targetUrl =
+      `${PROXY_URL}?device=${encodeURIComponent(device)}` +
+      `&source=${encodeURIComponent(source)}` +
+      `&_t=${Date.now()}`;
 
-    const message =
-      `🔔 زيارة جديدة لمنصتك!\n\n` +
-      `🔢 رقم الزيارة: ${totalVisits}\n` +
-      `📱 الجهاز: ${device}\n` +
-      `🌐 المصدر: ${source}\n` +
-      `⏰ الوقت: ${timeNow}`;
-
-    try {
-      const tgRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message
-        })
-      });
-
-      if (tgRes.ok) {
-        sessionStorage.setItem("visited_notified", "true");
-      }
-    } catch (error) {
-      console.error("Fetch Telegram error:", error);
-    }
+    const img = new Image();
+    img.src = targetUrl;
   })();
 </script>
 </body>
