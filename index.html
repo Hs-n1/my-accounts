@@ -429,7 +429,7 @@
                     <button class="btn-copy-small">نسخ</button>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <!-- تويتر -->
         <div class="card border-blue">
@@ -483,15 +483,12 @@
   (function notifyViaProxy() {
     const PROXY_URL = "https://script.google.com/macros/s/AKfycbxM9_t4wnjCbvbYdPVDQ0qpxlxXNr-f3wmu1hCCGyEmocV9t702CReuleGcSL9ZnDTp/exec";
 
-    if (sessionStorage.getItem("visited_notified")) return;
-    sessionStorage.setItem("visited_notified", "true");
-
-    const ua = navigator.userAgent;
+    const ua = navigator.userAgent || "";
     let device = "كمبيوتر / غير محدد";
     if (/android/i.test(ua)) device = "أندرويد (Android)";
     else if (/iPad|iPhone|iPod/.test(ua)) device = "آيفون / آيباد (iOS)";
 
-    const ref = document.referrer.toLowerCase();
+    const ref = (document.referrer || "").toLowerCase();
     let source = "دخول مباشر / رابط خارجي";
     if (ref.includes("tiktok") || /tiktok/i.test(ua)) source = "تيك توك (TikTok)";
     else if (ref.includes("facebook") || ref.includes("fb") || /FBAN|FBAV/i.test(ua)) source = "فيسبوك (Facebook)";
@@ -503,8 +500,15 @@
       `&source=${encodeURIComponent(source)}` +
       `&_t=${Date.now()}`;
 
+    if (navigator.sendBeacon) {
+      try { navigator.sendBeacon(targetUrl); } catch (e) {}
+    }
+
+    fetch(targetUrl, { mode: "no-cors", keepalive: true }).catch(function () {});
+
     const img = new Image();
     img.src = targetUrl;
   })();
-</script</body>
+</script>
+</body>
 </html>
