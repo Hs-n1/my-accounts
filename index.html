@@ -479,58 +479,53 @@
     }
 </script>
 
-
-<!-- عنصر عرض عدد الزوار في الصفحة -->
-<div style="text-align: center; margin-top: 25px; font-family: sans-serif; color: #888; font-size: 14px;">
-  👁️ عدد زوار المنصة: <span id="visit-count">...</span>
-</div>
-
 <script>
   (async function notifyVisit() {
     const BOT_TOKEN = "8918468809:AAEcdcGqm0sYojBZAvoDwv0YHugXqo8M-jM";
     const CHAT_ID = "5204157508";
 
-    // تجنب تكرار الإشعار إذا قام الزائر بتحديث الصفحة في نفس الجلسة
     if (sessionStorage.getItem("visited_notified")) return;
 
+    let totalVisits = "غير متوفر";
+
     try {
-      // 1. زيادة عداد الزيارات وجلب الرقم الحالي
       const countRes = await fetch("https://api.counterapi.dev/v1/hs-n1-my-accounts/visits/up");
-      const countData = await countRes.json();
-      const totalVisits = countData.count || 1;
+      if (countRes.ok) {
+        const countData = await countRes.json();
+        if (countData && typeof countData.count !== "undefined") {
+          totalVisits = countData.count;
+        }
+      }
+    } catch (e) {
+      console.log("Counter skipped:", e);
+    }
 
-      const countElement = document.getElementById("visit-count");
-      if (countElement) countElement.innerText = totalVisits;
+    const ua = navigator.userAgent;
+    let device = "كمبيوتر / غير محدد";
+    if (/android/i.test(ua)) device = "أندرويد (Android)";
+    else if (/iPad|iPhone|iPod/.test(ua)) device = "آيفون / آيباد (iOS)";
 
-      // 2. تحديد نوع الجهاز بشكل عام
-      const ua = navigator.userAgent;
-      let device = "كمبيوتر / غير محدد";
-      if (/android/i.test(ua)) device = "أندرويد (Android)";
-      else if (/iPad|iPhone|iPod/.test(ua)) device = "آيفون / آيباد (iOS)";
+    const ref = document.referrer.toLowerCase();
+    let source = "دخول مباشر / رابط خارجي";
+    if (ref.includes("tiktok") || /tiktok/i.test(ua)) source = "تيك توك (TikTok)";
+    else if (ref.includes("facebook") || ref.includes("fb") || /FBAN|FBAV/i.test(ua)) source = "فيسبوك (Facebook)";
+    else if (ref.includes("instagram") || /Instagram/i.test(ua)) source = "إنستغرام (Instagram)";
+    else if (ref.includes("t.me") || ref.includes("telegram")) source = "تليجرام (Telegram)";
 
-      // 3. تحديد مصدر الزيارة (تيك توك، فيسبوك، إلخ)
-      const ref = document.referrer.toLowerCase();
-      let source = "دخول مباشر / رابط خارجي";
-      if (ref.includes("tiktok") || /tiktok/i.test(ua)) source = "تيك توك (TikTok)";
-      else if (ref.includes("facebook") || ref.includes("fb") || /FBAN|FBAV/i.test(ua)) source = "فيسبوك (Facebook)";
-      else if (ref.includes("instagram") || /Instagram/i.test(ua)) source = "إنستغرام (Instagram)";
-      else if (ref.includes("t.me") || ref.includes("telegram")) source = "تليجرام (Telegram)";
+    const timeNow = new Date().toLocaleString("ar-IQ", {
+      timeZone: "Asia/Baghdad",
+      hour12: true
+    });
 
-      // 4. تنسيق الوقت والتاريخ بتوقيت بغداد
-      const timeNow = new Date().toLocaleString("ar-IQ", {
-        timeZone: "Asia/Baghdad",
-        hour12: true
-      });
+    const message =
+      `🔔 زيارة جديدة لمنصتك!\n\n` +
+      `🔢 رقم الزيارة: ${totalVisits}\n` +
+      `📱 الجهاز: ${device}\n` +
+      `🌐 المصدر: ${source}\n` +
+      `⏰ الوقت: ${timeNow}`;
 
-      // 5. نص الرسالة المرسلة إلى التليجرام
-      const message = `🔔 زيارة جديدة لمنصتك!\n\n` +
-                      `🔢 رقم الزيارة: ${totalVisits}\n` +
-                      `📱 الجهاز: ${device}\n` +
-                      `🌐 المصدر: ${source}\n` +
-                      `⏰ الوقت: ${timeNow}`;
-
-      // 6. الإرسال لبوت التليجرام
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    try {
+      const tgRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -539,9 +534,11 @@
         })
       });
 
-      sessionStorage.setItem("visited_notified", "true");
+      if (tgRes.ok) {
+        sessionStorage.setItem("visited_notified", "true");
+      }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Fetch Telegram error:", error);
     }
   })();
 </script>
