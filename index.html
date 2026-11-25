@@ -16,7 +16,7 @@
         body {
             background-color: #030305;
             color: #ffffff;
-            padding: 15px 10px;
+            padding: 12px 10px;
             display: flex;
             justify-content: center;
             min-height: 100vh;
@@ -26,7 +26,7 @@
             max-width: 520px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 9px;
         }
 
         /* الهيدر العلوي */
@@ -34,50 +34,90 @@
             position: relative;
             background: linear-gradient(135deg, rgba(147, 51, 234, 0.25), rgba(236, 72, 153, 0.25));
             border: 2px solid #c084fc;
-            border-radius: 16px;
-            padding: 15px;
+            border-radius: 14px;
+            padding: 11px 12px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+            box-shadow: 0 0 18px rgba(192, 132, 252, 0.3);
         }
         .side-note-left {
             position: absolute;
-            top: -25px;
+            top: -20px;
             right: 5px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #e2e8f0;
             transform: rotate(-8deg);
         }
         .side-note-right {
             position: absolute;
-            top: -25px;
+            top: -20px;
             left: 5px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #e2e8f0;
             transform: rotate(8deg);
         }
         .banner-title {
             color: #f472b6;
-            font-size: 1.3rem;
+            font-size: 1.12rem;
             font-weight: bold;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .banner-sub {
             color: #cbd5e1;
-            font-size: 0.8rem;
-            margin-bottom: 6px;
+            font-size: 0.74rem;
+            margin-bottom: 4px;
         }
         .banner-name {
             color: #facc15;
-            font-size: 1.15rem;
+            font-size: 1.06rem;
             font-weight: bold;
             text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+        .profile-avatar-wrap {
+            margin: 8px auto 6px;
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #facc15, #ec4899, #8b5cf6);
+            box-shadow: 0 0 16px rgba(236, 72, 153, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid #090a10;
+            background: #11131f;
+            display: block;
+        }
+        .banner-sub-badge {
+            margin-top: 3px;
+            color: #e9d5ff;
+            font-size: 0.73rem;
+            font-weight: bold;
+            line-height: 1.35;
+            direction: ltr;
+            unicode-bidi: isolate;
+        }
+        .banner-sub-badge-second {
+            margin-top: 2px;
+            color: #fbcfe8;
+            font-size: 0.73rem;
+            font-weight: bold;
+            line-height: 1.35;
+            direction: ltr;
+            unicode-bidi: isolate;
         }
 
         /* شبكة الكروت (2 في كل سطر) */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         .full-width {
             grid-column: span 2;
@@ -86,36 +126,50 @@
         /* بطاقات الحسابات النيون */
         .card {
             background: #090a10;
-            border-radius: 14px;
-            padding: 10px;
+            border-radius: 12px;
+            padding: 8px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             position: relative;
         }
 
-        .border-green  { border: 2px solid #22c55e; box-shadow: 0 0 12px rgba(34, 197, 94, 0.3); }
-        .border-blue   { border: 2px solid #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.3); }
-        .border-pink   { border: 2px solid #ec4899; box-shadow: 0 0 12px rgba(236, 72, 153, 0.3); }
-        .border-yellow { border: 2px solid #eab308; box-shadow: 0 0 12px rgba(234, 179, 8, 0.3); }
-        .border-cyan   { border: 2px solid #06b6d4; box-shadow: 0 0 12px rgba(6, 182, 212, 0.3); }
+        .border-green  { border: 2px solid #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.25); }
+        .border-blue   { border: 2px solid #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.25); }
+        .border-pink   { border: 2px solid #ec4899; box-shadow: 0 0 10px rgba(236, 72, 153, 0.25); }
+        .border-yellow { border: 2px solid #eab308; box-shadow: 0 0 10px rgba(234, 179, 8, 0.25); }
+        .border-cyan   { border: 2px solid #06b6d4; box-shadow: 0 0 10px rgba(6, 182, 212, 0.25); }
+        .border-cv-card {
+            background: linear-gradient(145deg, #0c0e1a, #150b21);
+            border: 2px solid #c084fc;
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.3);
+            padding: 9px;
+        }
 
         /* رأس الكارت الدائري مع الشعار والاسم */
         .card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-bottom: 6px;
+            gap: 8px;
+            padding-bottom: 5px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .header-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            width: 100%;
+            color: inherit;
+        }
         .circle-icon {
-            width: 42px;
-            height: 42px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             color: #fff;
             flex-shrink: 0;
         }
@@ -125,16 +179,19 @@
         .bg-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         .bg-sc { background: #fffc00; color: #000 !important; }
         .bg-tt { background: #000; border: 1px solid #333; }
-        .bg-tw { background: #000; border: 1px solid #333; }
         .bg-ph { background: #16a34a; }
+        .bg-cv {
+            background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6);
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+        }
 
         .card-title {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: bold;
             color: #ffffff;
             background: rgba(255, 255, 255, 0.05);
-            padding: 4px 10px;
-            border-radius: 12px;
+            padding: 3px 8px;
+            border-radius: 10px;
             flex-grow: 1;
             text-align: center;
         }
@@ -143,36 +200,37 @@
         .data-list {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
         }
         .data-item {
             background: #11131f;
-            border-radius: 8px;
-            padding: 5px 8px;
+            border-radius: 7px;
+            padding: 4px 7px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
             border: 1px solid transparent;
             transition: 0.2s;
+            text-decoration: none;
         }
         .data-item:hover {
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.25);
             background: #181b2c;
         }
         .item-label {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             color: #94a3b8;
-            font-size: 0.7rem;
-            min-width: 40px;
+            font-size: 0.66rem;
+            min-width: 34px;
             flex-shrink: 0;
         }
         .item-val {
             color: #ffffff;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             direction: ltr;
             text-align: left;
             word-break: break-all;
@@ -183,11 +241,60 @@
             color: #fff;
             border: none;
             border-radius: 5px;
-            padding: 3px 7px;
-            font-size: 0.68rem;
+            padding: 2px 6px;
+            font-size: 0.64rem;
             font-weight: bold;
             cursor: pointer;
             white-space: nowrap;
+        }
+
+        /* السيرة الذاتية المدمجة والملونة */
+        .cv-panel {
+            background: rgba(15, 17, 30, 0.92);
+            border: 1px solid rgba(192, 132, 252, 0.25);
+            border-radius: 10px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .cv-welcome-bar {
+            background: linear-gradient(90deg, rgba(250, 204, 21, 0.16), rgba(236, 72, 153, 0.16), rgba(139, 92, 246, 0.16));
+            border: 1px solid rgba(250, 204, 21, 0.45);
+            border-radius: 8px;
+            padding: 5px 8px;
+            color: #fde047;
+            font-weight: bold;
+            font-size: 0.74rem;
+            text-align: center;
+            direction: ltr;
+            unicode-bidi: isolate;
+        }
+        .cv-note {
+            background: #090b14;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 7px 9px;
+            color: #f8fafc;
+            font-size: 0.78rem;
+            line-height: 1.65;
+            text-align: center;
+        }
+        .cv-highlight {
+            color: #facc15;
+            font-weight: bold;
+            display: block;
+            margin: 3px 0;
+        }
+        .cv-muted {
+            color: #cbd5e1;
+            display: block;
+        }
+        .cv-footer-line {
+            color: #fbcfe8;
+            font-weight: bold;
+            display: block;
+            margin-top: 2px;
         }
 
         /* تذييل الأسفل */
@@ -195,18 +302,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            padding: 6px 8px;
             color: #cbd5e1;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 400px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .full-width {
-                grid-column: span 1;
-            }
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -221,6 +319,11 @@
         <div class="banner-title">★ أهلاً بك ★</div>
         <div class="banner-sub">هذه معلومات لحسابات التواصل الاجتماعي للسيد</div>
         <div class="banner-name">✨ [ "سيد حسين عطيه الموسوي" ] ✨</div>
+        <div class="profile-avatar-wrap">
+            <img class="profile-avatar" src="profile.jpg" alt="سيد حسين عطيه الموسوي">
+        </div>
+        <div class="banner-sub-badge">(▂▃▅▆▇ 🌟الهاشمي 🌟 ▇▆▅▃▂)</div>
+        <div class="banner-sub-badge-second">(▂▃▅▆▇ 🌟ابن الشايب 🌟 ▇▆▅▃▂)</div>
     </div>
 
     <!-- شبكة الكروت الكبيرة -->
@@ -229,224 +332,194 @@
         <!-- رقمي 1 -->
         <div class="card border-green">
             <div class="card-header">
-                <div class="circle-icon bg-ph"><i class="fa-solid fa-phone"></i></div>
-                <div class="card-title">رقمي 1</div>
+                <a class="header-link" href="tel:07829416475">
+                    <div class="circle-icon bg-ph"><i class="fa-solid fa-phone"></i></div>
+                    <div class="card-title">رقمي 1</div>
+                </a>
             </div>
             <div class="data-list">
-                <div class="data-item" onclick="copyVal('07853349876', this)">
+                <a class="data-item" href="tel:07829416475">
                     <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
-                    <span class="item-val">07853349876</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
+                    <span class="item-val">07829416475</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('07829416475', this.parentElement);">نسخ</button>
+                </a>
             </div>
         </div>
 
         <!-- رقمي 2 -->
         <div class="card border-blue">
             <div class="card-header">
-                <div class="circle-icon bg-ph" style="background:#2563eb;"><i class="fa-solid fa-phone"></i></div>
-                <div class="card-title">رقمي 2</div>
+                <a class="header-link" href="tel:07861121110">
+                    <div class="circle-icon bg-ph" style="background:#2563eb;"><i class="fa-solid fa-phone"></i></div>
+                    <div class="card-title">رقمي 2</div>
+                </a>
             </div>
             <div class="data-list">
-                <div class="data-item" onclick="copyVal('‏‪07887352327‬‏', this)">
+                <a class="data-item" href="tel:07861121110">
                     <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
-                    <span class="item-val">‏‪07887352327‬‏</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
+                    <span class="item-val">07861121110</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('07861121110', this.parentElement);">نسخ</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- واتساب 1 -->
+        <div class="card border-green">
+            <div class="card-header">
+                <a class="header-link" href="https://wa.me/9647829416475" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-wa"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="card-title">واتساب 1</div>
+                </a>
+            </div>
+            <div class="data-list">
+                <a class="data-item" href="https://wa.me/9647829416475" target="_blank" rel="noopener noreferrer">
+                    <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
+                    <span class="item-val">07829416475</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('07829416475', this.parentElement);">نسخ</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- واتساب 2 -->
+        <div class="card border-green">
+            <div class="card-header">
+                <a class="header-link" href="https://wa.me/9647861121110" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-wa"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="card-title">واتساب 2</div>
+                </a>
+            </div>
+            <div class="data-list">
+                <a class="data-item" href="https://wa.me/9647861121110" target="_blank" rel="noopener noreferrer">
+                    <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
+                    <span class="item-val">07861121110</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('07861121110', this.parentElement);">نسخ</button>
+                </a>
             </div>
         </div>
 
         <!-- فيسبوك -->
         <div class="card border-blue">
             <div class="card-header">
-                <div class="circle-icon bg-fb"><i class="fa-brands fa-facebook-f"></i></div>
-                <div class="card-title">فيسبوك</div>
+                <a class="header-link" href="https://www.facebook.com/share/1MN37AvhV4/" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-fb"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="card-title">فيسبوك</div>
+                </a>
             </div>
             <div class="data-list">
-                <div class="data-item" onclick="copyVal('حسوني السيد', this)">
+                <a class="data-item" href="https://www.facebook.com/share/1MN37AvhV4/" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">حسوني السيد</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('@Hassouni2009', this)">
-                    <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">@Hassouni2009</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('https://www.facebook.com/share/1C4CRYcLw/', this)">
+                    <span class="item-val">سيد حسين عطيه الموسوي</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('سيد حسين عطيه الموسوي', this.parentElement);">نسخ</button>
+                </a>
+                <a class="data-item" href="https://www.facebook.com/share/1MN37AvhV4/" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-link"></i> الرابط</span>
-                    <span class="item-val">...facebook.com/share</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
+                    <span class="item-val">https://www.facebook.com/share/1MN37AvhV4/</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('https://www.facebook.com/share/1MN37AvhV4/', this.parentElement);">نسخ</button>
+                </a>
             </div>
         </div>
 
-        <!-- واتساب -->
-        <div class="card border-green">
+        <!-- تيك توك -->
+        <div class="card border-pink">
             <div class="card-header">
-                <div class="circle-icon bg-wa"><i class="fa-brands fa-whatsapp"></i></div>
-                <div class="card-title">واتساب</div>
+                <a class="header-link" href="https://www.tiktok.com/@has689_?" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-tt"><i class="fa-brands fa-tiktok"></i></div>
+                    <div class="card-title">تيك توك</div>
+                </a>
             </div>
             <div class="data-list">
-                <div class="data-item" onclick="copyVal('حسين عطيه الموسوي', this)">
+                <a class="data-item" href="https://www.tiktok.com/@has689_?" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">حسين عطيه الموسوي</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('07853349876', this)">
-                    <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
-                    <span class="item-val">07853349876</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('H_________9@', this)">
+                    <span class="item-val">حـˢـسين 💀</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('حـˢـسين 💀', this.parentElement);">نسخ</button>
+                </a>
+                <a class="data-item" href="https://www.tiktok.com/@has689_?" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">H_________9@</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
+                    <span class="item-val">has689_</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('has689_', this.parentElement);">نسخ</button>
+                </a>
+                <a class="data-item" href="https://www.tiktok.com/@has689_?" target="_blank" rel="noopener noreferrer">
+                    <span class="item-label"><i class="fa-solid fa-link"></i> الرابط</span>
+                    <span class="item-val">https://www.tiktok.com/@has689_?</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('https://www.tiktok.com/@has689_?', this.parentElement);">نسخ</button>
+                </a>
             </div>
         </div>
 
-        <!-- تيليجرام -->
+        <!-- انستا -->
+        <div class="card border-pink">
+            <div class="card-header">
+                <a class="header-link" href="https://www.instagram.com/has68.99/" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-ig"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="card-title">انستا</div>
+                </a>
+            </div>
+            <div class="data-list">
+                <a class="data-item" href="https://www.instagram.com/has68.99/" target="_blank" rel="noopener noreferrer">
+                    <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
+                    <span class="item-val">has68.99</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('has68.99', this.parentElement);">نسخ</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- تليكرام -->
         <div class="card border-cyan">
             <div class="card-header">
-                <div class="circle-icon bg-tg"><i class="fa-brands fa-telegram"></i></div>
-                <div class="card-title">تيليجرام</div>
+                <a class="header-link" href="https://t.me/has689" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-tg"><i class="fa-brands fa-telegram"></i></div>
+                    <div class="card-title">تليكرام</div>
+                </a>
             </div>
             <div class="data-list">
-                <div class="data-item" onclick="copyVal('حسوني السيد', this)">
+                <a class="data-item" href="https://t.me/has689" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">حسوني السيد</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('07853349876', this)">
-                    <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
-                    <span class="item-val">07853349876</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('@H_1_S_2', this)">
+                    <span class="item-val">آبو آلـسـيـک ♡🙂❤️</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('آبو آلـسـيـک ♡🙂❤️', this.parentElement);">نسخ</button>
+                </a>
+                <a class="data-item" href="https://t.me/has689" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">@H_1_S_2</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
+                    <span class="item-val">has689</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('has689', this.parentElement);">نسخ</button>
+                </a>
             </div>
         </div>
 
-        <!-- انستغرام -->
-        <div class="card border-pink">
+        <!-- سناب -->
+        <div class="card border-yellow full-width">
             <div class="card-header">
-                <div class="circle-icon bg-ig"><i class="fa-brands fa-instagram"></i></div>
-                <div class="card-title">انستغرام</div>
+                <a class="header-link" href="https://www.snapchat.com/add/has68900" target="_blank" rel="noopener noreferrer">
+                    <div class="circle-icon bg-sc"><i class="fa-brands fa-snapchat"></i></div>
+                    <div class="card-title">سناب</div>
+                </a>
             </div>
             <div class="data-list">
-                <div class="data-item" onclick="copyVal('حسوني السيد', this)">
+                <a class="data-item" href="https://www.snapchat.com/add/has68900" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">حسوني السيد</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('_has2009', this)">
+                    <span class="item-val">حـˢـسين 💀</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('حـˢـسين 💀', this.parentElement);">نسخ</button>
+                </a>
+                <a class="data-item" href="https://www.snapchat.com/add/has68900" target="_blank" rel="noopener noreferrer">
                     <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">_has2009</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('https://www.instagram.com/_has2009?stkn=MTJjZ3k4emd1bm5m', this)">
-                    <span class="item-label"><i class="fa-solid fa-link"></i> الرابط</span>
-                    <span class="item-val">...instagram.com</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
+                    <span class="item-val">has68900</span>
+                    <button type="button" class="btn-copy-small" onclick="event.preventDefault(); event.stopPropagation(); copyVal('has68900', this.parentElement);">نسخ</button>
+                </a>
             </div>
         </div>
 
-        <!-- سناب شات -->
-        <div class="card border-yellow">
+        <!-- سيرة ذاتية -->
+        <div class="card border-cv-card full-width">
             <div class="card-header">
-                <div class="circle-icon bg-sc"><i class="fa-brands fa-snapchat"></i></div>
-                <div class="card-title">سناب شات</div>
+                <div class="circle-icon bg-cv"><i class="fa-solid fa-id-card"></i></div>
+                <div class="card-title">سيرة ذاتية</div>
             </div>
-            <div class="data-list">
-                <div class="data-item" onclick="copyVal('السيد', this)">
-                    <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">السيد</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('07853349876', this)">
-                    <span class="item-label"><i class="fa-solid fa-phone"></i> الرقم</span>
-                    <span class="item-val">07853349876</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('Has17-2009', this)">
-                    <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">Has17-2009</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- تيك توك 1 -->
-        <div class="card border-pink">
-            <div class="card-header">
-                <div class="circle-icon bg-tt"><i class="fa-brands fa-tiktok"></i></div>
-                <div class="card-title">تيك توك 1</div>
-            </div>
-            <div class="data-list">
-                <div class="data-item" onclick="copyVal('حسوني السيد', this)">
-                    <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">حسوني السيد</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('hs_16_4', this)">
-                    <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">hs_16_4</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('tiktok.com/@hs_16_4', this)">
-                    <span class="item-label"><i class="fa-solid fa-link"></i> الرابط</span>
-                    <span class="item-val">tiktok.com/@hs_16_4</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- تيك توك 2 -->
-        <div class="card border-pink">
-            <div class="card-header">
-                <div class="circle-icon bg-tt"><i class="fa-brands fa-tiktok"></i></div>
-                <div class="card-title">تيك توك 2</div>
-            </div>
-            <div class="data-list">
-                <div class="data-item" onclick="copyVal('الموسوي', this)">
-                    <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">الموسوي</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('hs_16_1', this)">
-                    <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">hs_16_1</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('tiktok.com/@hs_16_1', this)">
-                    <span class="item-label"><i class="fa-solid fa-link"></i> الرابط</span>
-                    <span class="item-val">tiktok.com/@hs_16_1</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- تويتر -->
-        <div class="card border-blue">
-            <div class="card-header">
-                <div class="circle-icon bg-tw"><i class="fa-brands fa-x-twitter"></i></div>
-                <div class="card-title">تويتر</div>
-            </div>
-            <div class="data-list">
-                <div class="data-item" onclick="copyVal('حسين عطيه', this)">
-                    <span class="item-label"><i class="fa-solid fa-user"></i> الاسم</span>
-                    <span class="item-val">حسين عطيه</span>
-                    <button class="btn-copy-small">نسخ</button>
-                </div>
-                <div class="data-item" onclick="copyVal('@Hassouni 100k', this)">
-                    <span class="item-label"><i class="fa-solid fa-at"></i> اليوزر</span>
-                    <span class="item-val">@Hassouni 100k</span>
-                    <button class="btn-copy-small">نسخ</button>
+            <div class="cv-panel">
+                <div class="cv-welcome-bar">▂▃▅▆▇ 🌟 أهلاً بك 🌟 ▇▆▅▃▂</div>
+                <div class="cv-note">
+                    <span class="cv-muted">عذراً، لسنا متاحين الآن...</span>
+                    <span class="cv-muted">ولكن</span>
+                    <span class="cv-highlight">✨ [ سوف يتم الرد عليك بواسطة "السيد" ] ✨</span>
+                    <span class="cv-footer-line">يرجى ترك رسالتك وسنقوم بالرد قريباً ⏳👇</span>
                 </div>
             </div>
         </div>
@@ -479,36 +552,5 @@
     }
 </script>
 
-<script>
-  (function notifyViaProxy() {
-    const PROXY_URL = "https://script.google.com/macros/s/AKfycbxM9_t4wnjCbvbYdPVDQ0qpxlxXNr-f3wmu1hCCGyEmocV9t702CReuleGcSL9ZnDTp/exec";
-
-    const ua = navigator.userAgent || "";
-    let device = "كمبيوتر / غير محدد";
-    if (/android/i.test(ua)) device = "أندرويد (Android)";
-    else if (/iPad|iPhone|iPod/.test(ua)) device = "آيفون / آيباد (iOS)";
-
-    const ref = (document.referrer || "").toLowerCase();
-    let source = "دخول مباشر / رابط خارجي";
-    if (ref.includes("tiktok") || /tiktok/i.test(ua)) source = "تيك توك (TikTok)";
-    else if (ref.includes("facebook") || ref.includes("fb") || /FBAN|FBAV/i.test(ua)) source = "فيسبوك (Facebook)";
-    else if (ref.includes("instagram") || /Instagram/i.test(ua)) source = "إنستغرام (Instagram)";
-    else if (ref.includes("t.me") || ref.includes("telegram")) source = "تليجرام (Telegram)";
-
-    const targetUrl =
-      `${PROXY_URL}?device=${encodeURIComponent(device)}` +
-      `&source=${encodeURIComponent(source)}` +
-      `&_t=${Date.now()}`;
-
-    if (navigator.sendBeacon) {
-      try { navigator.sendBeacon(targetUrl); } catch (e) {}
-    }
-
-    fetch(targetUrl, { mode: "no-cors", keepalive: true }).catch(function () {});
-
-    const img = new Image();
-    img.src = targetUrl;
-  })();
-</script>
 </body>
 </html>
